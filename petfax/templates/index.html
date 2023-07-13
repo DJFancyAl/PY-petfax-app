@@ -1,28 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PETS PETS PETS</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-    <h1>Welcome to PetFax</h1>
-    <div>
-        <a href="/facts/new"><button>Add a Fact</button></a>
-    </div> 
-    {% for pet in pets %}
-        <a href="/pets/{{loop.index0}}">
-            <div class="card">
-                    <h2>{{pet.pet_name}}</h2>
-                    <div class="img-container">
-                        <img src="{{pet.pet_photo}}" alt="Photo of Pet"/>
-                    </div>
-            </div>
-        </a>
-    {% endfor %}
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}PetFax - Pet Facts!{% endblock %}
+{% block content %}
+<h1>Welcome to PetFax</h1>
+<div>
+    <a href="/facts/new"><button>Add a Fact</button></a>
+</div> 
+{% for pet in pets %}
+    <a href="/pets/{{loop.index0}}">
+        <div class="card">
+                <h2>{{pet.pet_name}}</h2>
+                <div class="img-container">
+                    <img src="{{pet.pet_photo}}" alt="Photo of Pet"/>
+                </div>
+        </div>
+    </a>
+{% endfor %}
+{% endblock %}
