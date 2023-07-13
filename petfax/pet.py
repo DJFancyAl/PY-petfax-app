@@ -10,6 +10,7 @@ bp = Blueprint("pet", __name__, url_prefix="/pets")
 def index():
     return render_template('index.html', pets=pet_data)
 
-@bp.route('/test')
-def pets(): 
-    return 'wazzzuppp!'
+@bp.route('/<int:index>')
+def pet_view(index): 
+    found_pet = pet_data[index]
+    return render_template('pet-show.html', pet=found_pet)
